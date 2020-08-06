@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 var cities = [];
 
 function currentWeather(name) {
@@ -44,8 +46,7 @@ function currentWeather(name) {
     var lon = response.coord.lon;
     //calling it to the function
     getforcast(lat, lon);
-    
-
+    $(".container").show();
   
   });
 }
@@ -167,7 +168,7 @@ function getforcast(lat, lon) {
 }
 function renderButtons() {
   $("#past-cities").empty();
-
+  $(".container").hide();
   // Looping through the array of cities
   for (var i = 0; i < cities.length; i++) {
     var a = $("<button>");
@@ -183,7 +184,7 @@ function renderButtons() {
 }
 
 $("#getWeather").on("click", function (event) {
-  
+ $()
   //buttons do not repeat itself
   event.preventDefault();
   //grabbing id of input
@@ -191,10 +192,11 @@ $("#getWeather").on("click", function (event) {
   cities.push(cityName);
   //calling function
   currentWeather(cityName);
-
-
   renderButtons();
+  
+ 
 });
+
 
 $(document).on("click", ".city-btn", function () {
   var buttonCity = $(this).attr("data-name");
@@ -202,6 +204,5 @@ $(document).on("click", ".city-btn", function () {
 });
 
 renderButtons();
+});
 
-//lat= 25.77
-// lon =-80.19
