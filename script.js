@@ -44,6 +44,8 @@ function currentWeather(name) {
     var lon = response.coord.lon;
     //calling it to the function
     getforcast(lat, lon);
+    
+
   
   });
 }
@@ -181,6 +183,7 @@ function renderButtons() {
 }
 
 $("#getWeather").on("click", function (event) {
+  
   //buttons do not repeat itself
   event.preventDefault();
   //grabbing id of input
